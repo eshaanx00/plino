@@ -8,7 +8,7 @@ var plinkos = [];
 var divisions = []
 
 var particle;
-var turn = 0;
+var turn = 5;
 var score=0;
 
 var game="play"
@@ -71,7 +71,7 @@ function draw() {
       if(particle.body.position.x<300){
         score=score+500;
         particle=null
-        if(turn>=5)game="end"
+        if(turn<=0)game="end"
       }
       
     }
@@ -82,7 +82,7 @@ function draw() {
       if(particle.body.position.x>300&&particle.body.position.x<600){
         score=score+100;
         particle=null
-        if(turn>=5)game="end"
+        if(turn<=0)game="end"
       }
       
     }
@@ -93,7 +93,7 @@ function draw() {
       if(particle.body.position.x>601&&particle.body.position.x<900){
         score=score+200;
         particle=null
-        if(turn>=5)game="end"
+        if(turn<0)game="end"
       }
       
     }
@@ -134,7 +134,7 @@ function draw() {
 }
 function mousePressed(){
   if(game!=="end"){
-turn++;
+turn--;
 particle=new Particle(mouseX,10,10,10)
   }
   
